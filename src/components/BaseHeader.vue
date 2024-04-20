@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white shadow px-3 py-5"
+    class="bg-white shadow lg:mb-12 lg:px-3 lg:py-5 px-2 py-2 mb-6"
     style="box-shadow: 0 2px 10px rgba(152, 152, 152, 0.5)"
   >
     <div class="xl:container mx-auto">
