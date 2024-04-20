@@ -4,6 +4,7 @@
       type="search"
       placeholder="Search for a country…"
       class="w-full w-max-480 lg:pl-16 lg:mb-12 lg:py-4 mb-6 pl-10 pr-4 py-3 text-sm text-gray-700 bg-white border-none rounded-md shadow-md"
+      @input="handleInput"
     />
     <span class="absolute lg:left-8 lg:top-4 left-4 top-3">
       <svg
@@ -23,3 +24,13 @@
     </span>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    handleInput(event) {
+      this.$emit("inputValue", event.target.value);
+    },
+  },
+};
+</script>
