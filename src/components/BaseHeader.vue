@@ -1,6 +1,11 @@
 <template>
-  <div class="bg-white px-sm-20 md:px-30 lg:px-40 py-sm-20 md:py-30 lg:py-40">
-    <base-text size="100px" :text="text" tag="h1" />
+  <div
+    class="bg-white shadow px-3 py-5"
+    style="box-shadow: 0 2px 10px rgba(152, 152, 152, 0.5)"
+  >
+    <div class="xl:container mx-auto">
+      <base-text size="24px" weight="800" :text="text" tag="h1" />
+    </div>
   </div>
 </template>
 

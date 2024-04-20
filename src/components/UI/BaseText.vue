@@ -1,5 +1,13 @@
 <template>
-  <component :is="tag" :style="{ fontSize: size }">{{ text }}</component>
+  <component
+    :is="tag"
+    :style="{
+      fontSize: size,
+      fontWeight: weight,
+    }"
+  >
+    {{ text }}
+  </component>
 </template>
 
 <script>
@@ -8,6 +16,10 @@ export default {
     size: {
       type: String,
       default: "16px",
+    },
+    weight: {
+      type: Number,
+      default: 300,
     },
     text: {
       type: String,
