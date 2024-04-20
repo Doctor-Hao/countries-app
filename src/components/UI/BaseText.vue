@@ -22,7 +22,7 @@ export default {
       default: "300",
     },
     text: {
-      type: String,
+      type: [String, Number],
       default: "",
     },
     tag: {

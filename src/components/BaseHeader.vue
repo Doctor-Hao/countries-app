@@ -4,7 +4,14 @@
     style="box-shadow: 0 2px 10px rgba(152, 152, 152, 0.5)"
   >
     <div class="xl:container mx-auto">
-      <base-text size="24px" weight="800" :text="text" tag="h1" />
+      <router-link to="/">
+        <base-text
+          class="inline-block transition duration-300 ease-in-out hover:text-blue-500"
+          size="24px"
+          weight="800"
+          :text="text"
+          tag="h1"
+      /></router-link>
     </div>
   </div>
 </template>
