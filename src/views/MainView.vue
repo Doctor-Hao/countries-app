@@ -1,34 +1,72 @@
 <template>
-  <div class="xl:container mx-auto px-2">
+  <section class="xl:container mx-auto px-2">
     <base-search />
-    <base-card :title="title" />
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-16 gap-6">
+      <base-card
+        v-for="(item, index) in countriesData"
+        :key="index"
+        :img-url="item.flags.png"
+        :title="item.name"
+        @click="moreInfo"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
 import BaseSearch from "@/components/UI/BaseSearch";
 import BaseCard from "@/components/UI/BaseCard";
-import HelloWorld from "@/components/HelloWorld.vue";
 import apiService from "../api/countries";
 
 export default {
-  name: "HomeView",
   components: {
     BaseCard,
     BaseSearch,
-    HelloWorld,
   },
   data() {
     return {
-      title: "Germany",
+      card: BaseCard,
       countriesData: [],
+      isLoading: false,
+      page: 1,
     };
   },
-  mounted() {
-    this.countriesData = apiService.getUsers();
+  created() {
+    this.fetchUsers();
+    window.addEventListener("scroll", this.handleScroll);
   },
-  methods: {},
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  mounted() {},
+  methods: {
+    async fetchUsers() {
+      try {
+        this.isLoading = true;
+        const newData = await apiService.getUsers(
+          this.countriesData.length,
+          10,
+        );
+        this.countriesData = [...this.countriesData, ...newData];
+        console.log("this.countriesData", this.countriesData);
+      } catch (error) {
+        console.error("Ошибка при получении данных: ", error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+
+    handleScroll() {
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+        !this.isLoading
+      ) {
+        this.fetchUsers();
+      }
+    },
+    moreInfo() {
+      console.log("переход");
+    },
+  },
 };
 </script>

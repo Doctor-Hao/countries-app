@@ -1,5 +1,9 @@
 :root {
-    --main-color: #111517;
-    --main-bg-color: #F2F2F2;
+    --very-dark-blue: hsl(200, 15%, 8%); // (Light Mode Text)
+    --dark-grey: hsl(0, 0%, 52%); // (Light Mode Input)
+    --very-light-gray: hsl(0, 0%, 98%); // (Light Mode Background)
+    --main-white: hsl(0, 0%, 100%); // (Light Mode Elements)
     --main-family: "Nunito Sans", sans-serif;
 }
+
+
