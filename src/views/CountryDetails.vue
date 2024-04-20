@@ -1,48 +1,28 @@
 <template>
   <section class="xl:container mx-auto px-2 mb-10">
-    <base-search />
-    <div
-      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:mx-0 md:mx-0 mx-10 lg:gap-16 gap-12"
-    >
-      <base-card
-        v-for="(item, index) in countriesData"
-        :key="index"
-        :img-url="item.flags.png"
-        :title="item.name"
-        :population="item.population"
-        :region="item.region"
-        :capital="item.capital"
-        @card-clicked="moreInfo"
-      />
-    </div>
+    <base-router-back />
   </section>
 </template>
 
 <script>
-import router from "@/router";
-import BaseSearch from "@/components/UI/BaseSearch";
-import BaseCard from "@/components/UI/BaseCard";
+import BaseRouterBack from "@/components/UI/BaseRouterBack.vue";
 import apiService from "../api/countries";
 
 export default {
-  components: {
-    BaseCard,
-    BaseSearch,
-  },
+  components: { BaseRouterBack },
   data() {
     return {
-      countryDetails: [],
+      countryDetails: {},
     };
   },
   created() {
-    this.getCountryDetails();
+    this.getCountryDetails(this.$route.params.id);
   },
   mounted() {},
   methods: {
-    async getCountryDetails() {
+    async getCountryDetails(countryName) {
       try {
-        this.countryDetails = await apiService.getCountryDetails();
-        console.log("this.countriesData", this.countriesData);
+        this.countryDetails = await apiService.getCountryDetails(countryName);
       } catch (error) {
         console.error("Ошибка при получении данных: ", error);
       }

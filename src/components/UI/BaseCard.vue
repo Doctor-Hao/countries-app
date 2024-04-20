@@ -12,15 +12,15 @@
       </div>
       <ul class="flex flex-col gap-1">
         <li class="flex gap-1">
-          <base-text size="14px" weight="500" text="Population:" tag="p" />
+          <base-text size="14px" weight="600" text="Population:" tag="p" />
           <base-text size="14px" weight="300" :text="population" tag="p" />
         </li>
         <li class="flex gap-1">
-          <base-text size="14px" weight="500" text="Region:" tag="p" />
+          <base-text size="14px" weight="600" text="Region:" tag="p" />
           <base-text size="14px" weight="300" :text="region" tag="p" />
         </li>
         <li class="flex gap-1">
-          <base-text size="14px" weight="500" text="Capital:" tag="p" />
+          <base-text size="14px" weight="600" text="Capital:" tag="p" />
           <base-text size="14px" weight="300" :text="capital" tag="p" />
         </li>
       </ul>
