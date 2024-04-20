@@ -1,12 +1,17 @@
 <template>
   <section class="xl:container mx-auto px-2">
     <base-search />
-    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-16 gap-6">
+    <div
+      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:mx-0 md:mx-0 mx-10 lg:gap-16 gap-12"
+    >
       <base-card
         v-for="(item, index) in countriesData"
         :key="index"
         :img-url="item.flags.png"
         :title="item.name"
+        :population="item.population"
+        :region="item.region"
+        :capital="item.capital"
         @click="moreInfo"
       />
     </div>
@@ -25,43 +30,20 @@ export default {
   },
   data() {
     return {
-      card: BaseCard,
       countriesData: [],
-      isLoading: false,
-      page: 1,
     };
   },
   created() {
     this.fetchUsers();
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
   },
   mounted() {},
   methods: {
     async fetchUsers() {
       try {
-        this.isLoading = true;
-        const newData = await apiService.getUsers(
-          this.countriesData.length,
-          10,
-        );
-        this.countriesData = [...this.countriesData, ...newData];
+        this.countriesData = await apiService.getUsers();
         console.log("this.countriesData", this.countriesData);
       } catch (error) {
         console.error("Ошибка при получении данных: ", error);
-      } finally {
-        this.isLoading = false;
-      }
-    },
-
-    handleScroll() {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-        !this.isLoading
-      ) {
-        this.fetchUsers();
       }
     },
     moreInfo() {

@@ -14,16 +14,20 @@
         <div class="lg:pt-6 lg:pb-4 pt-3 pb-3">
           <base-text size="18px" weight="800" :text="title" tag="p" />
         </div>
-        <div>
-          <div class="flex gap-1">
-            <base-text size="14px" weight="500" :text="title" tag="span" />
-            <base-text size="14px" weight="300" :text="title" tag="p" />
-          </div>
-
-          <p>Population: 81,770,900</p>
-          <p>Region: Europe</p>
-          <p>Capital: Berlin</p>
-        </div>
+        <ul class="flex flex-col gap-1">
+          <li class="flex gap-1">
+            <base-text size="14px" weight="500" text="Population:" tag="p" />
+            <base-text size="14px" weight="300" :text="population" tag="p" />
+          </li>
+          <li class="flex gap-1">
+            <base-text size="14px" weight="500" text="Region:" tag="p" />
+            <base-text size="14px" weight="300" :text="region" tag="p" />
+          </li>
+          <li class="flex gap-1">
+            <base-text size="14px" weight="500" text="Capital:" tag="p" />
+            <base-text size="14px" weight="300" :text="capital" tag="p" />
+          </li>
+        </ul>
       </div>
     </div>
   </a>
@@ -36,6 +40,9 @@ export default {
   props: {
     imgUrl: String,
     title: String,
+    population: String,
+    region: String,
+    capital: String,
   },
 };
 </script>
