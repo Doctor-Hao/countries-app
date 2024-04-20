@@ -18,8 +18,8 @@ export default {
       default: "16px",
     },
     weight: {
-      type: Number,
-      default: 300,
+      type: String,
+      default: "300",
     },
     text: {
       type: String,
