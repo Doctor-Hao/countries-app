@@ -7,15 +7,11 @@
 import BaseHeader from "@/components/BaseHeader";
 
 export default {
-  name: "HomeView",
+  name: "AppView",
   components: {
     BaseHeader,
   },
 };
 </script>
 
-<style>
-body {
-  font-size: 20px;
-}
-</style>
+<style></style>

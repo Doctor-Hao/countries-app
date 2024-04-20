@@ -35,14 +35,13 @@ export default {
     };
   },
   created() {
-    this.fetchUsers();
+    this.getCountries();
   },
   mounted() {},
   methods: {
-    async fetchUsers() {
+    async getCountries() {
       try {
-        this.countriesData = await apiService.getUsers();
-        console.log("this.countriesData", this.countriesData);
+        this.countriesData = await apiService.getCountries();
       } catch (error) {
         console.error("Ошибка при получении данных: ", error);
       }
