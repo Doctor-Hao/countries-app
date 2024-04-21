@@ -18,4 +18,7 @@ export default {
       console.error("Error: ", error);
     }
   },
+  formatPopulation(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  },
 };
