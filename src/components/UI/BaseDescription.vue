@@ -26,8 +26,8 @@ import BaseText from "@/components/UI/BaseText";
 export default {
   components: { BaseText },
   props: {
-    sizeName: String,
-    sizeDescription: String,
+    sizeName: Number,
+    sizeDescription: Number,
     name: String,
     description: [String, Number, Array],
   },

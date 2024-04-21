@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :style="{
-      fontSize: size,
+      fontSize: calcSize,
       fontWeight: weight,
     }"
   >
@@ -14,8 +14,13 @@
 export default {
   props: {
     size: {
-      type: String,
-      default: "16px",
+      type: Number,
+      default: 16,
+    },
+    adaptiveSize: {
+      type: Number,
+      default: 0,
+      required: false,
     },
     weight: {
       type: String,
@@ -28,6 +33,11 @@ export default {
     tag: {
       type: String,
       default: "div",
+    },
+  },
+  computed: {
+    calcSize() {
+      return `calc(${this.size - this.adaptiveSize}px + ${this.adaptiveSize} * ((100vw - 320px) / 1920))`;
     },
   },
 };

@@ -17,7 +17,7 @@
         fill="#111517"
       />
     </svg>
-    <base-text size="16px" weight="300" text="Back" tag="p" />
+    <base-text :size="16" :adaptive-size="2" weight="300" text="Back" tag="p" />
   </button>
 </template>
 

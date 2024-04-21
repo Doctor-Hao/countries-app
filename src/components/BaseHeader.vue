@@ -7,7 +7,8 @@
       <router-link to="/">
         <base-text
           class="inline-block transition duration-300 ease-in-out hover:text-blue-500"
-          size="24px"
+          :size="24"
+          :adaptive-size="10"
           weight="800"
           :text="text"
           tag="h1"

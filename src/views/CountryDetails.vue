@@ -18,7 +18,8 @@
       <div class="flex flex-col align-center justify-center">
         <div class="mb-5">
           <base-text
-            size="2em"
+            :size="32"
+            :adaptive-size="10"
             weight="800"
             :text="countryDetails.name"
             tag="h2"
@@ -29,65 +30,65 @@
             <li>
               <base-description
                 :name="'Native Name:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.nativeName"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Population:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.population"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Region:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.region"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Sub Region:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.subregion"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Capital:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.capital"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Top Level Domain:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.topLevelDomain"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Currencies:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.currencies"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
             <li>
               <base-description
                 :name="'Languages:'"
-                :size-name="'16px'"
+                :size-name="16"
                 :description="countryDetails.languages"
-                :size-description="'16px'"
+                :size-description="16"
               />
             </li>
           </ul>
@@ -97,7 +98,7 @@
           class="flex flex-wrap align-center gap-3"
         >
           <base-text
-            :size="'16px'"
+            :size="16"
             weight="600"
             :text="'Border Countries:'"
             tag="p"
@@ -106,7 +107,7 @@
           <base-text
             v-for="(item, index) in borderCountries"
             :key="index"
-            :size="'14px'"
+            :size="14"
             weight="300"
             :text="item"
             tag="p"
