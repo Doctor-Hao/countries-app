@@ -143,7 +143,6 @@ export default {
     async getCountryDetails(countryName) {
       try {
         this.countryDetails = await apiService.getCountryDetails(countryName);
-        console.log("this.countryDetails", this.countryDetails);
         if (this.countryDetails.borders)
           this.borderCountries = await helpers.getCountryName(
             this.countryDetails.borders,
