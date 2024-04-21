@@ -4,7 +4,7 @@
     class="cursor-pointer w-full bg-white border-none rounded-sm shadow-sm g-white shadow-md hover:shadow-lg transition duration-300 ease-in-out lg:pb-12 pb-6 hover:scale-105"
   >
     <div class="w-full h-40 object-cover mx-auto mb-5 shadow-sm">
-      <img :src="imgUrl" alt="img countries" class="w-full h-40 object-cover" />
+      <img :src="imgUrl" :alt="title" class="w-full h-40 object-cover" />
     </div>
     <div class="lg:px-6 px-3">
       <div class="lg:pt-6 lg:pb-4 pt-3 pb-3">

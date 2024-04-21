@@ -25,7 +25,7 @@ export default {
   props: {
     msg: String,
   },
-  data: function () {
+  data() {
     return {
       text: "Where in the world?",
     };

@@ -3,12 +3,12 @@
     <base-search @input-value="handleInput" />
     <div
       v-if="countriesList.length"
-      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:mx-0 md:mx-0 mx-10 lg:gap-16 gap-12"
+      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:mx-0 md:mx-0 mx-5 lg:gap-16 gap-12"
     >
       <base-card
         v-for="(item, index) in countriesList"
         :key="index"
-        :img-url="item.flags.png"
+        :img-url="item.flag"
         :title="item.name"
         :population="item.population"
         :region="item.region"
@@ -17,7 +17,12 @@
       />
     </div>
     <div v-else class="flex justify-center">
-      Нет данных по {{ searchValue }}
+      <base-text
+        size="20px"
+        weight="600"
+        :text="'Нет данных по ' + searchValue"
+        tag="p"
+      />
     </div>
   </section>
 </template>
@@ -25,11 +30,13 @@
 <script>
 import router from "@/router";
 import BaseSearch from "@/components/UI/BaseSearch";
+import BaseText from "@/components/UI/BaseText";
 import BaseCard from "@/components/UI/BaseCard";
 import apiService from "../api/countries";
 
 export default {
   components: {
+    BaseText,
     BaseCard,
     BaseSearch,
   },
@@ -59,6 +66,7 @@ export default {
     async getCountries() {
       try {
         this.countriesData = await apiService.getCountries();
+        console.log("this.countriesData", this.countriesData);
       } catch (error) {
         console.error("Ошибка при получении данных: ", error);
       }
