@@ -2,7 +2,7 @@
   <section class="xl:container mx-auto px-5 mb-10">
     <base-router-back />
     <div
-      class="grid lg:grid-cols-2 grid-cols-1 lg:gap-20 gap-10 lg:my-20 my-10"
+      class="grid align-center lg:grid-cols-2 grid-cols-1 lg:gap-60 gap-10 lg:my-20 my-10"
     >
       <div class="flex justify-center rounded-md lg:h-auto h-56">
         <img
@@ -15,7 +15,7 @@
           "
         />
       </div>
-      <div>
+      <div class="flex flex-col align-center justify-center">
         <div class="mb-5">
           <base-text
             size="2em"
@@ -92,12 +92,26 @@
             </li>
           </ul>
         </div>
-        <div>
-          <base-description
-            :name="'Border Countries:'"
-            :size-name="'16px'"
-            :description="countryDetails.borderCountries"
-            :size-description="'16px'"
+        <div
+          v-if="borderCountries.length"
+          class="flex flex-wrap align-center gap-3"
+        >
+          <base-text
+            :size="'16px'"
+            weight="600"
+            :text="'Border Countries:'"
+            tag="p"
+            class="sm:w-auto w-full"
+          />
+          <base-text
+            v-for="(item, index) in borderCountries"
+            :key="index"
+            :size="'14px'"
+            weight="300"
+            :text="item"
+            tag="p"
+            class="text-center rounded-sm min-w-24 py-1 px-2"
+            style="box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931)"
           />
         </div>
       </div>
@@ -110,12 +124,14 @@ import BaseRouterBack from "@/components/UI/BaseRouterBack.vue";
 import BaseDescription from "@/components/UI/BaseDescription.vue";
 import BaseText from "@/components/UI/BaseText";
 import apiService from "../api/countries";
+import helpers from "../helpers/helpers";
 
 export default {
   components: { BaseRouterBack, BaseDescription, BaseText },
   data() {
     return {
       countryDetails: {},
+      borderCountries: {},
     };
   },
   created() {
@@ -126,9 +142,13 @@ export default {
     async getCountryDetails(countryName) {
       try {
         this.countryDetails = await apiService.getCountryDetails(countryName);
-        console.log("countryDetails", this.countryDetails);
+        console.log("this.countryDetails", this.countryDetails);
+        if (this.countryDetails.borders)
+          this.borderCountries = await helpers.getCountryName(
+            this.countryDetails.borders,
+          );
       } catch (error) {
-        console.error("Ошибка при получении данных: ", error);
+        console.error("Error: ", error);
       }
     },
   },

@@ -20,7 +20,7 @@
       <base-text
         size="20px"
         weight="600"
-        :text="'Нет данных по ' + searchValue"
+        :text="'Нет данных ' + searchValue"
         tag="p"
       />
     </div>
@@ -66,9 +66,8 @@ export default {
     async getCountries() {
       try {
         this.countriesData = await apiService.getCountries();
-        console.log("this.countriesData", this.countriesData);
       } catch (error) {
-        console.error("Ошибка при получении данных: ", error);
+        console.error("Error: ", error);
       }
     },
     moreInfo(countryName) {

@@ -6,7 +6,7 @@ export default {
       const response = await axios.get(`./data.json`);
       return response.data;
     } catch (error) {
-      console.error("Ошибка при получении данных: ", error);
+      console.error("Error: ", error);
     }
   },
   async getCountryDetails(countryName) {
@@ -20,7 +20,7 @@ export default {
 
       return countryData;
     } catch (error) {
-      console.error("Ошибка при получении данных о стране: ", error);
+      console.error("Error: ", error);
     }
   },
 };

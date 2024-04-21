@@ -570,9 +570,9 @@ video {
   top: 0.75rem;
 }
 
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .mx-auto {
@@ -585,21 +585,6 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.mx-8 {
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -610,18 +595,6 @@ video {
 
 .mb-6 {
   margin-bottom: 1.5rem;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .mb-8 {
@@ -640,10 +613,6 @@ video {
   display: grid;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
 .h-40 {
   height: 10rem;
 }
@@ -654,6 +623,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.min-w-24 {
+  min-width: 6rem;
 }
 
 .max-w-md {
@@ -684,20 +657,16 @@ video {
   gap: 0.25rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-12 {
   gap: 3rem;
 }
 
-.gap-20 {
-  gap: 5rem;
-}
-
 .gap-3 {
   gap: 0.75rem;
-}
-
-.gap-10 {
-  gap: 2.5rem;
 }
 
 .rounded-md {
@@ -722,6 +691,11 @@ video {
      object-fit: cover;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -737,6 +711,16 @@ video {
   padding-right: 0.75rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -745,11 +729,6 @@ video {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .pb-3 {
@@ -770,6 +749,10 @@ video {
 
 .pt-3 {
   padding-top: 0.75rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-sm {
@@ -885,8 +868,20 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
   }
 }
 
@@ -948,8 +943,8 @@ body {
     gap: 4rem;
   }
 
-  .lg\:gap-20 {
-    gap: 5rem;
+  .lg\:gap-60 {
+    gap: 15rem;
   }
 
   .lg\:px-3 {
