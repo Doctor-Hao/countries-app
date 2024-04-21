@@ -18,7 +18,7 @@
     </div>
     <div v-else class="flex justify-center">
       <base-text
-        size="20px"
+        :size="20"
         weight="600"
         :text="'Нет данных ' + searchValue"
         tag="p"
