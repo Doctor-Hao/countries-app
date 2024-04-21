@@ -102,7 +102,7 @@
             weight="600"
             :text="'Border Countries:'"
             tag="p"
-            class="sm:w-auto w-full"
+            class="sm:w-auto w-full py-1"
           />
           <base-text
             v-for="(item, index) in borderCountries"
